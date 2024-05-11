@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="user"></div>
+    <form>
+        <select></select>
+        <button onlick="favoriteAgent()">Favori</button>
+    </form>
+    <script>
+        let token = localStorage.getItem("token")
+
+        if (!token) {
+            window.location.href = "login.html"
+        }
+
+        fetch('http://localhost:3000/user/', {
+            headers: {
+                "x-access-token": `${token}`
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            let user = document.querySelector("#user")
+            user.innerHTML = `
+            <h1>${data.pseudo}</h1>
+            <h2>${data.email}</h2>
+            <a href="index.html">Back</a>
+            <p>${data.agent?.name ?? "pas d'agent favori"}</p>`
+        })
+
+        fetch('http://localhost:3000/agents')
+        .then((response) => response.json())
+        .then((data) => {
+            let select = document.querySelector('select')
+            console.log(data);
+            data.forEach((agent) => {
+                select.innerHTML += `<option value="${agent.id}">${agent.name}</option>`
+            });
+        })
+        const favoriteAgent = async() => {
+            let agent = document.querySelector('select.value')
+            let response = await fetch('http://localhost:3000/user/favorite', {
+                method:'POST',
+
+                headers: {
+                    'Content-type': 'application/json',
+                    'x-access-token': `${token}`
+                },
+                body: JSON.stringify({agent: agent }),
+            })
+            window.location.href = "profil.html"
+        }
+    </script>
+</body>
+</html>

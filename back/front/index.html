@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Liste des Agents</h1>
+    <div id="agents"></div>
+    <script>
+        fetch('http://localhost:3000/agents')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                let agents = document.querySelector("#agents")
+                data.forEach(agent => {
+                    agents.innerHTML += `<a href="agent.html?id=${agent.id}">
+                                        <h2>${agent.name}<h2> </a>`
+                });
+            })
+    </script>
+</body>
+</html>

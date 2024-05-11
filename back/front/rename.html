@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="agent"/>
+        <button type="button" onclick="UpdateAgent()">UpdateAgent</button>
+    </form>
+    <script>
+        let url = window.location.search
+        let id = new URLSearchParams(url).get("id")
+
+        fetch(`http://localhost:3000/agents/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            let agent = document.querySelector('input[name="agent"]')
+            agent.value = data.name
+        })
+
+        const UpdateAgent = async() => {
+            let agent = document.querySelector('input[name="agent"]').value
+            let response = await fetch(`http://localhost:3000/agents/${id}`, {
+                method:'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({name: agent})
+            }) 
+            window.location.href = "index.html"
+        }
+    </script>
+</body>
+</html>
