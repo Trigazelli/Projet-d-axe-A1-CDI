@@ -39,21 +39,24 @@ const login = async(req, res) => {
         },
     })
     console.log("après user");
+    console.log(user);
 
     if (!user) {
-        return res.stauts(404).json({error: "User not found"})
+        return res.status(404).json({error: "User not found"})
     }
+
+    console.log("oskour");
 
     const validPassword = await bcrypt.compare(password, user.password)
 
     if (!validPassword) {
+        console.log("if password");
         return res.status(404).json({error : "Password not valid"})
     }
     console.log(user.id, user.email);
-    const token = await jwt.sign({email:user.email }, process.env.JWT_SECRET, {
+    const token = jwt.sign({id: user.id, email :user.email }, `${process.env.JWT_SECRET}`, {
         expiresIn: "2h",
     })
-    console.log("ouah");
 
     res.json(token)
 }

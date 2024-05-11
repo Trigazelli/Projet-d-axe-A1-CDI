@@ -48,9 +48,6 @@ app.use(router)
 
 
 
-
-
-
 app.listen(3000, () => {
     console.log(`Server run: ${ipAddr}:3000`);
 })

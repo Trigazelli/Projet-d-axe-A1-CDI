@@ -4,6 +4,8 @@ let img = document.querySelector(".character");
 let nameperso = document.querySelector(".name");
 let info = document.querySelector(".infos");
 let title = document.querySelector("title")
+let footer = document.querySelector("footer")
+let home = document.querySelector(".title")
 
 let user = null;
 console.log("https://hp-api.lainocs.fr/characters/" + slug);
@@ -20,6 +22,7 @@ fetch("https://hp-api.lainocs.fr/characters/" + slug)
     }).then(() => console.log("ok"));
     title.innerHTML = e.name
     img.src = e.image
+    img.style.backgroundImage = `url(../images/${e.house}.jpg)`
     nameperso.innerHTML = e.name
     info.innerHTML = `<li>Eyes: ${e.eyes}</li>
                     <li>Hairs: ${e.hairs}</li>
@@ -31,5 +34,10 @@ fetch("https://hp-api.lainocs.fr/characters/" + slug)
                     <li>house:${e.house}</li>
                     <li>actor:${e.actor}</li>
                     `
+    footer.innerHTML = `${e.name} is played by ${e.actor}`
 })
 .catch((e) => console.log(e));
+
+home.addEventListener("click", function() {
+    window.location.href = "index.html"
+})
