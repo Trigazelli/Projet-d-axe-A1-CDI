@@ -22,7 +22,11 @@ fetch("https://hp-api.lainocs.fr/characters/" + slug)
     }).then(() => console.log("ok"));
     title.innerHTML = e.name
     img.src = e.image
-    img.style.backgroundImage = `url(../images/${e.house}.jpg)`
+    if (e.house == "") {
+        img.style.backgroundImage = `url(../images/no_house.jpg)`
+    } else {
+        img.style.backgroundImage = `url(../images/${e.house}.jpg)`
+    }
     nameperso.innerHTML = e.name
     info.innerHTML = `<li>Eyes: ${e.eyes}</li>
                     <li>Hairs: ${e.hairs}</li>
