@@ -187,6 +187,27 @@ ul {
     display: none;
 }
 
+.sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height : 100%;
+    transition: width 3s;
+}
+
+.sidebar .house {
+    width: 100%;
+}
+
+.sidebar-open {
+    width: 20%;
+}
+
 .title:hover {
     background-color: rgb(236, 236, 236);
     cursor: pointer;
@@ -236,7 +257,7 @@ button:hover {
         display: block;
     }
 
-    .house {
+    .header {
         display: none;
     }
 }

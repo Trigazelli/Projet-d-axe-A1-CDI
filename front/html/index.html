@@ -9,8 +9,8 @@
 	</head>
 
 	<body>
+		<i class="fa-solid fa-bars"></i>
 		<div class="header">
-			<i class="fa-solid fa-bars"></i>
 			<img class="title house" id="all" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Harry_Potter_wordmark.svg" alt="harry potter">
 			<button class="house" id="Gryffindor">Gryffondor</button>
 			<button class="house" id="Slytherin">Serpentard</button>
@@ -22,12 +22,22 @@
 
 		<div class="main">
 
+			<div class="sidebar hidden">
+				<i class="close_sidebar fa-solid fa-x"></i>
+				<img class="title house" id="all" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Harry_Potter_wordmark.svg" alt="harry potter">
+				<button class="house" id="Gryffindor">Gryffondor</button>
+				<button class="house" id="Slytherin">Serpentard</button>
+				<button class="house" id="Ravenclaw">Serdaigle</button>
+				<button class="house" id="Hufflepuff">Poufsouffle</button>
+				<button class="house" id="">Sans Maison</button>
+			</div>
+
 			<ul class="personnages">
 			</ul>
 
 			<div class="modal">
 				<h1 class="modal_button"><strong>Echanger</strong></h1>
-				<i class="hidden fa-solid fa-x"></i>
+				<i class="close_echange hidden fa-solid fa-x"></i>
 				<div class="hidden modifiable">
 					<form action="" class="echange">
 						<label for="pseudo">Pseudo du destinataire :</label>

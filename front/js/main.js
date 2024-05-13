@@ -4,8 +4,10 @@ let modal = document.querySelector(".modal")
 let form = document.querySelector(".modifiable")
 let modal_button = document.querySelector(".modal_button")
 let ExchangedCard = document.querySelector("#ExchangedCard")
-let close = document.querySelector(".fa-solid.fa-x")
+let close_echange = document.querySelector(".close_echange")
 let bars = document.querySelector(".fa-solid.fa-bars")
+let sidebar = document.querySelector(".sidebar")
+let close_sidebar = document.querySelector(".close_sidebar")
 
 
 // va chercher les données dans l'API
@@ -71,27 +73,42 @@ async function displayAll() {
     })
 }
 
+displayAll()
+
+
 modal_button.addEventListener("click", function() {
     console.log("in modal");
-    close.classList.add("visible")
-    close.classList.remove("hidden")
+    close_echange.classList.add("visible")
+    close_echange.classList.remove("hidden")
     modal_button.classList.add("hidden")
     modal.classList.add("open")
     form.classList.add("visible")
     form.classList.remove("hidden")
 })
 
-close.addEventListener("click", function() {
+close_echange.addEventListener("click", function() {
     console.log("in close");
-    close.classList.remove("visible")
-    close.classList.add("hidden")
+    close_echange.classList.remove("visible")
+    close_echange.classList.add("hidden")
     modal_button.classList.remove("hidden")
     modal.classList.remove("open")
     form.classList.remove("visible")
     form.classList.add("hidden")
 })
 
-displayAll()
+bars.addEventListener("click", function() {
+    sidebar.classList.add("visible")
+    sidebar.classList.remove("hidden")
+    sidebar.classList.add("sidebar-open")
+})
+
+close_sidebar.addEventListener("click", function() {
+    console.log("close_sidebar start");
+    sidebar.classList.remove("visible")
+    sidebar.classList.add("hidden")
+    sidebar.classList.remove("sidebar-open")
+
+})
 
 // async function addClick() {
 //     await displayAll()
