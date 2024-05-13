@@ -97,15 +97,13 @@ close_echange.addEventListener("click", function() {
 })
 
 bars.addEventListener("click", function() {
-    sidebar.classList.add("visible")
-    sidebar.classList.remove("hidden")
+
     sidebar.classList.add("sidebar-open")
 })
 
 close_sidebar.addEventListener("click", function() {
     console.log("close_sidebar start");
-    sidebar.classList.remove("visible")
-    sidebar.classList.add("hidden")
+
     sidebar.classList.remove("sidebar-open")
 
 })
