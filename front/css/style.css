@@ -100,28 +100,12 @@ ul {
     background-color: rgba(236, 236, 236, 0.1);
 }
 
-.title:hover {
-    background-color: rgb(236, 236, 236);
-}
-
-button:hover {
-    color: white;
-    background-color: black;
-}
-
-/*permet de changer l'apparence de la carte quand la souris est dessus*/
-.personnage:hover {
-    color: gray;
-    transform: scale(1.05, 1.05);
-    margin: 15px;
-}
-
 .visible {
     display: flex;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .back {
@@ -142,4 +126,117 @@ button:hover {
     10% {opacity : 30%}
 
     to {opacity: 100%;}
+}
+
+.fa-solid.fa-heart {
+    display: none;
+    font-size: 38px;
+}
+
+.added {
+    color: red;
+    display: block !important;
+}
+
+.modal {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    padding: 10px 0 0 0;
+    width: 100px;
+    height: 100px;
+    bottom: 20px;
+    right: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    transition: width 0.5s, height 0.5s;
+}
+
+.modal_button {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modifiable {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.echange {
+    position: fixed;
+    background-color: white;
+    font-size: 26px;
+}
+
+.fa-solid.fa-x {
+    font-size: 40px;
+}
+
+.open {
+    width: 350px;
+    height: 150px;
+}
+
+.fa-solid.fa-bars {
+    display: none;
+}
+
+.title:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+}
+
+/*permet de changer l'apparence de la carte quand la souris est dessus*/
+.personnage:hover {
+    color: gray;
+    transform: scale(1.05, 1.05);
+    margin: 15px;
+}
+
+.personnage:hover > .fa-solid.fa-heart {
+    display: block;
+}
+
+@media screen and (max-width:800px) {
+    .personnage {
+        width: 25%;
+        height: 20vh;
+    }
+    .personnage:hover {
+        margin: 0px;
+    }
+
+    body {
+        background-image: url(../images/responsive_wallpaper.jpg);
+        background-size: contain;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 8vh;
+        width: 100%;
+        color: black;
+        background-color: white;
+    }
+    .fa-solid.fa-bars {
+        font-size: 28px;
+        display: block;
+    }
+
+    .house {
+        display: none;
+    }
 }

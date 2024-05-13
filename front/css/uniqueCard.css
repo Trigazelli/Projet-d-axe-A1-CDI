@@ -11,14 +11,13 @@
 
 body {
     font-family: potter, sans-serif;
-    color: white;
+    color: black;
     justify-content: space-between;
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-image: url(../images/hogwarts.jpg);
     background-attachment: fixed;
-    animation: appear 1s;
 }
 
 img {
@@ -46,7 +45,7 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: 40px;
-    background-color: black;
+    background-color: white;
 }
 
 .character {
@@ -59,12 +58,11 @@ footer {
     position: relative;
     border: 0.3rem solid rgb(56, 56, 56);
     border-radius: 10px;
-    perspective: 1000px;
-    transform-style: preserve-3d;
 }
 
 .left {
     width: 33%;
+    color: white;
 }
 
 .right {
@@ -86,10 +84,6 @@ footer {
     cursor: pointer;
 }
 
-.character:hover {
-    
-}
-
 @keyframes color {
     from {color: black;}
     to {color: aliceblue;}
@@ -98,4 +92,50 @@ footer {
 @keyframes appear {
     from {opacity: 0%;}
     to {opacity: 100%;}
+}
+
+@media screen and (max-width:800px) {
+    body {
+        background-image: url(../images/responsive_wallpaper.jpg);
+        background-size: contain;
+    }
+    
+    main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        animation: appear 1s;
+    }
+
+    .left {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height : 60%;
+        width: 100%;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+    }
+
+    .character {
+        padding: 10px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        border: 0.3rem solid rgb(56, 56, 56);
+        border-radius: 10px;
+    }
+
+    .login {
+        display: none;
+    }
+
+    .right {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 }
